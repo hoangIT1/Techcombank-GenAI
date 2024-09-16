@@ -1,0 +1,648 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B2C91B762C945C720042D05F /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C91B752C945C720042D05F /* LottieView.swift */; };
+		B2C91B782C945DA00042D05F /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B2C91B772C945DA00042D05F /* loading.json */; };
+		B2C91B862C9470C70042D05F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B2C91B852C9470C70042D05F /* Lottie */; };
+		B2CC26C82C8EF902001F0A4F /* genAIChatBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC26C72C8EF902001F0A4F /* genAIChatBotApp.swift */; };
+		B2CC26CA2C8EF902001F0A4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC26C92C8EF902001F0A4F /* ContentView.swift */; };
+		B2CC26CC2C8EF903001F0A4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2CC26CB2C8EF903001F0A4F /* Assets.xcassets */; };
+		B2CC26CF2C8EF903001F0A4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2CC26CE2C8EF903001F0A4F /* Preview Assets.xcassets */; };
+		B2CC26D92C8EF903001F0A4F /* genAIChatBotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC26D82C8EF903001F0A4F /* genAIChatBotTests.swift */; };
+		B2CC26E32C8EF903001F0A4F /* genAIChatBotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC26E22C8EF903001F0A4F /* genAIChatBotUITests.swift */; };
+		B2CC26E52C8EF903001F0A4F /* genAIChatBotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC26E42C8EF903001F0A4F /* genAIChatBotUITestsLaunchTests.swift */; };
+		B2CC26F22C8EFD44001F0A4F /* MessageOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC26F12C8EFD44001F0A4F /* MessageOwner.swift */; };
+		B2CC26F52C8EFEEF001F0A4F /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC26F42C8EFEEF001F0A4F /* ChatMessage.swift */; };
+		B2CC26F72C8EFFE8001F0A4F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC26F62C8EFFE8001F0A4F /* ContentViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B2CC26D52C8EF903001F0A4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2CC26BC2C8EF902001F0A4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2CC26C32C8EF902001F0A4F;
+			remoteInfo = genAIChatBot;
+		};
+		B2CC26DF2C8EF903001F0A4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2CC26BC2C8EF902001F0A4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2CC26C32C8EF902001F0A4F;
+			remoteInfo = genAIChatBot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B2C91B752C945C720042D05F /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		B2C91B772C945DA00042D05F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../Downloads/loading.json; sourceTree = "<group>"; };
+		B2CC26C42C8EF902001F0A4F /* genAIChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genAIChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2CC26C72C8EF902001F0A4F /* genAIChatBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genAIChatBotApp.swift; sourceTree = "<group>"; };
+		B2CC26C92C8EF902001F0A4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B2CC26CB2C8EF903001F0A4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2CC26CE2C8EF903001F0A4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B2CC26D42C8EF903001F0A4F /* genAIChatBotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = genAIChatBotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2CC26D82C8EF903001F0A4F /* genAIChatBotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genAIChatBotTests.swift; sourceTree = "<group>"; };
+		B2CC26DE2C8EF903001F0A4F /* genAIChatBotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = genAIChatBotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2CC26E22C8EF903001F0A4F /* genAIChatBotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genAIChatBotUITests.swift; sourceTree = "<group>"; };
+		B2CC26E42C8EF903001F0A4F /* genAIChatBotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genAIChatBotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B2CC26F12C8EFD44001F0A4F /* MessageOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageOwner.swift; sourceTree = "<group>"; };
+		B2CC26F42C8EFEEF001F0A4F /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		B2CC26F62C8EFFE8001F0A4F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B2CC26C12C8EF902001F0A4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2C91B862C9470C70042D05F /* Lottie in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2CC26D12C8EF903001F0A4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2CC26DB2C8EF903001F0A4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B2C91B6F2C8F10B10042D05F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2CC26BB2C8EF902001F0A4F = {
+			isa = PBXGroup;
+			children = (
+				B2CC26C62C8EF902001F0A4F /* genAIChatBot */,
+				B2CC26D72C8EF903001F0A4F /* genAIChatBotTests */,
+				B2CC26E12C8EF903001F0A4F /* genAIChatBotUITests */,
+				B2CC26C52C8EF902001F0A4F /* Products */,
+				B2C91B6F2C8F10B10042D05F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B2CC26C52C8EF902001F0A4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2CC26C42C8EF902001F0A4F /* genAIChatBot.app */,
+				B2CC26D42C8EF903001F0A4F /* genAIChatBotTests.xctest */,
+				B2CC26DE2C8EF903001F0A4F /* genAIChatBotUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2CC26C62C8EF902001F0A4F /* genAIChatBot */ = {
+			isa = PBXGroup;
+			children = (
+				B2CC26C72C8EF902001F0A4F /* genAIChatBotApp.swift */,
+				B2CC26C92C8EF902001F0A4F /* ContentView.swift */,
+				B2CC26F12C8EFD44001F0A4F /* MessageOwner.swift */,
+				B2CC26F62C8EFFE8001F0A4F /* ContentViewModel.swift */,
+				B2CC26F42C8EFEEF001F0A4F /* ChatMessage.swift */,
+				B2C91B772C945DA00042D05F /* loading.json */,
+				B2CC26CB2C8EF903001F0A4F /* Assets.xcassets */,
+				B2CC26CD2C8EF903001F0A4F /* Preview Content */,
+				B2C91B752C945C720042D05F /* LottieView.swift */,
+			);
+			path = genAIChatBot;
+			sourceTree = "<group>";
+		};
+		B2CC26CD2C8EF903001F0A4F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B2CC26CE2C8EF903001F0A4F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B2CC26D72C8EF903001F0A4F /* genAIChatBotTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2CC26D82C8EF903001F0A4F /* genAIChatBotTests.swift */,
+			);
+			path = genAIChatBotTests;
+			sourceTree = "<group>";
+		};
+		B2CC26E12C8EF903001F0A4F /* genAIChatBotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B2CC26E22C8EF903001F0A4F /* genAIChatBotUITests.swift */,
+				B2CC26E42C8EF903001F0A4F /* genAIChatBotUITestsLaunchTests.swift */,
+			);
+			path = genAIChatBotUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2CC26C32C8EF902001F0A4F /* genAIChatBot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2CC26E82C8EF903001F0A4F /* Build configuration list for PBXNativeTarget "genAIChatBot" */;
+			buildPhases = (
+				B2CC26C02C8EF902001F0A4F /* Sources */,
+				B2CC26C12C8EF902001F0A4F /* Frameworks */,
+				B2CC26C22C8EF902001F0A4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = genAIChatBot;
+			packageProductDependencies = (
+				B2C91B852C9470C70042D05F /* Lottie */,
+			);
+			productName = genAIChatBot;
+			productReference = B2CC26C42C8EF902001F0A4F /* genAIChatBot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B2CC26D32C8EF903001F0A4F /* genAIChatBotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2CC26EB2C8EF903001F0A4F /* Build configuration list for PBXNativeTarget "genAIChatBotTests" */;
+			buildPhases = (
+				B2CC26D02C8EF903001F0A4F /* Sources */,
+				B2CC26D12C8EF903001F0A4F /* Frameworks */,
+				B2CC26D22C8EF903001F0A4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2CC26D62C8EF903001F0A4F /* PBXTargetDependency */,
+			);
+			name = genAIChatBotTests;
+			productName = genAIChatBotTests;
+			productReference = B2CC26D42C8EF903001F0A4F /* genAIChatBotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B2CC26DD2C8EF903001F0A4F /* genAIChatBotUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2CC26EE2C8EF903001F0A4F /* Build configuration list for PBXNativeTarget "genAIChatBotUITests" */;
+			buildPhases = (
+				B2CC26DA2C8EF903001F0A4F /* Sources */,
+				B2CC26DB2C8EF903001F0A4F /* Frameworks */,
+				B2CC26DC2C8EF903001F0A4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2CC26E02C8EF903001F0A4F /* PBXTargetDependency */,
+			);
+			name = genAIChatBotUITests;
+			productName = genAIChatBotUITests;
+			productReference = B2CC26DE2C8EF903001F0A4F /* genAIChatBotUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2CC26BC2C8EF902001F0A4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					B2CC26C32C8EF902001F0A4F = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					B2CC26D32C8EF903001F0A4F = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = B2CC26C32C8EF902001F0A4F;
+					};
+					B2CC26DD2C8EF903001F0A4F = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = B2CC26C32C8EF902001F0A4F;
+					};
+				};
+			};
+			buildConfigurationList = B2CC26BF2C8EF902001F0A4F /* Build configuration list for PBXProject "genAIChatBot" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B2CC26BB2C8EF902001F0A4F;
+			packageReferences = (
+				B2C91B842C9470C70042D05F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
+			productRefGroup = B2CC26C52C8EF902001F0A4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2CC26C32C8EF902001F0A4F /* genAIChatBot */,
+				B2CC26D32C8EF903001F0A4F /* genAIChatBotTests */,
+				B2CC26DD2C8EF903001F0A4F /* genAIChatBotUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B2CC26C22C8EF902001F0A4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2CC26CF2C8EF903001F0A4F /* Preview Assets.xcassets in Resources */,
+				B2CC26CC2C8EF903001F0A4F /* Assets.xcassets in Resources */,
+				B2C91B782C945DA00042D05F /* loading.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2CC26D22C8EF903001F0A4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2CC26DC2C8EF903001F0A4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2CC26C02C8EF902001F0A4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2CC26F22C8EFD44001F0A4F /* MessageOwner.swift in Sources */,
+				B2CC26F52C8EFEEF001F0A4F /* ChatMessage.swift in Sources */,
+				B2CC26CA2C8EF902001F0A4F /* ContentView.swift in Sources */,
+				B2CC26C82C8EF902001F0A4F /* genAIChatBotApp.swift in Sources */,
+				B2CC26F72C8EFFE8001F0A4F /* ContentViewModel.swift in Sources */,
+				B2C91B762C945C720042D05F /* LottieView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2CC26D02C8EF903001F0A4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2CC26D92C8EF903001F0A4F /* genAIChatBotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2CC26DA2C8EF903001F0A4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2CC26E32C8EF903001F0A4F /* genAIChatBotUITests.swift in Sources */,
+				B2CC26E52C8EF903001F0A4F /* genAIChatBotUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B2CC26D62C8EF903001F0A4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2CC26C32C8EF902001F0A4F /* genAIChatBot */;
+			targetProxy = B2CC26D52C8EF903001F0A4F /* PBXContainerItemProxy */;
+		};
+		B2CC26E02C8EF903001F0A4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2CC26C32C8EF902001F0A4F /* genAIChatBot */;
+			targetProxy = B2CC26DF2C8EF903001F0A4F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B2CC26E62C8EF903001F0A4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B2CC26E72C8EF903001F0A4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B2CC26E92C8EF903001F0A4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"genAIChatBot/Preview Content\"";
+				DEVELOPMENT_TEAM = 8639KN27MB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnt.genAIChatBot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B2CC26EA2C8EF903001F0A4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"genAIChatBot/Preview Content\"";
+				DEVELOPMENT_TEAM = 8639KN27MB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnt.genAIChatBot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B2CC26EC2C8EF903001F0A4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8639KN27MB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnt.genAIChatBotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/genAIChatBot.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/genAIChatBot";
+			};
+			name = Debug;
+		};
+		B2CC26ED2C8EF903001F0A4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8639KN27MB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnt.genAIChatBotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/genAIChatBot.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/genAIChatBot";
+			};
+			name = Release;
+		};
+		B2CC26EF2C8EF903001F0A4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8639KN27MB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnt.genAIChatBotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = genAIChatBot;
+			};
+			name = Debug;
+		};
+		B2CC26F02C8EF903001F0A4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8639KN27MB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnt.genAIChatBotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = genAIChatBot;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2CC26BF2C8EF902001F0A4F /* Build configuration list for PBXProject "genAIChatBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2CC26E62C8EF903001F0A4F /* Debug */,
+				B2CC26E72C8EF903001F0A4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2CC26E82C8EF903001F0A4F /* Build configuration list for PBXNativeTarget "genAIChatBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2CC26E92C8EF903001F0A4F /* Debug */,
+				B2CC26EA2C8EF903001F0A4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2CC26EB2C8EF903001F0A4F /* Build configuration list for PBXNativeTarget "genAIChatBotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2CC26EC2C8EF903001F0A4F /* Debug */,
+				B2CC26ED2C8EF903001F0A4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2CC26EE2C8EF903001F0A4F /* Build configuration list for PBXNativeTarget "genAIChatBotUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2CC26EF2C8EF903001F0A4F /* Debug */,
+				B2CC26F02C8EF903001F0A4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2C91B842C9470C70042D05F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2C91B852C9470C70042D05F /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2C91B842C9470C70042D05F /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B2CC26BC2C8EF902001F0A4F /* Project object */;
+}
