@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2AE24742CD151C200C7D1A1 /* MarketLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE24732CD151C200C7D1A1 /* MarketLandingView.swift */; };
 		B2C91B762C945C720042D05F /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C91B752C945C720042D05F /* LottieView.swift */; };
 		B2C91B782C945DA00042D05F /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B2C91B772C945DA00042D05F /* loading.json */; };
 		B2C91B862C9470C70042D05F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B2C91B852C9470C70042D05F /* Lottie */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2AE24732CD151C200C7D1A1 /* MarketLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketLandingView.swift; sourceTree = "<group>"; };
 		B2C91B752C945C720042D05F /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		B2C91B772C945DA00042D05F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../Downloads/loading.json; sourceTree = "<group>"; };
 		B2CC26C42C8EF902001F0A4F /* genAIChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genAIChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +125,7 @@
 				B2CC26CB2C8EF903001F0A4F /* Assets.xcassets */,
 				B2CC26CD2C8EF903001F0A4F /* Preview Content */,
 				B2C91B752C945C720042D05F /* LottieView.swift */,
+				B2AE24732CD151C200C7D1A1 /* MarketLandingView.swift */,
 			);
 			path = genAIChatBot;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				B2CC26F22C8EFD44001F0A4F /* MessageOwner.swift in Sources */,
 				B2CC26F52C8EFEEF001F0A4F /* ChatMessage.swift in Sources */,
 				B2CC26CA2C8EF902001F0A4F /* ContentView.swift in Sources */,
+				B2AE24742CD151C200C7D1A1 /* MarketLandingView.swift in Sources */,
 				B2CC26C82C8EF902001F0A4F /* genAIChatBotApp.swift in Sources */,
 				B2CC26F72C8EFFE8001F0A4F /* ContentViewModel.swift in Sources */,
 				B2C91B762C945C720042D05F /* LottieView.swift in Sources */,
