@@ -460,6 +460,7 @@ struct MarketLandingView: View {
             }
             .padding(.bottom, keyboardOffset) // Điều chỉnh với keyboardOffset
             .animation(.easeOut(duration: 0.3), value: keyboardOffset)
+            .edgesIgnoringSafeArea(.all)
         }
         .background(LinearGradient(gradient: Gradient(colors: [Color("D7D7FA"), Color("D7D7FA").opacity(0.4)]), startPoint: .leading, endPoint: .trailing))
         .edgesIgnoringSafeArea(.all)
