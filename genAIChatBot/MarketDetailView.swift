@@ -1,4 +1,5 @@
 import SwiftUI
+import UserNotifications
 
 struct MarketDetailView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -11,14 +12,9 @@ struct MarketDetailView: View {
     @State private var completionRate = 0.0 // Tạm thời đặt completion rate là 75%
     @State private var numberArticles = 20 // Tạm thời giả lập 20 bài báo tìm thấy
     @State private var timer: Timer?
-    let totalTime: Double = 300
+    @State private var isNotiEnable = false
     
-    //mockup data from API
-    @State private var summaryContent = "Nội dung summary"
-    @State private var overviewContent = "Nội dung overview"
-    @State private var competitionContent = "Nội dung competition"
-    @State private var customersContent = "Nội dung customers"
-    @State private var keyDataContent = "Nội dung keyData"
+    let totalTime: Double = 5
     
     var body: some View {
         ScrollView {
@@ -54,28 +50,41 @@ struct MarketDetailView: View {
                 .padding(.leading)
                 .padding(.top, 20)
                 
-                // Thanh Completion Rate
-                VStack {
-                    ProgressView(value: completionRate, total: totalTime)
-                        .progressViewStyle(LinearProgressViewStyle(tint: .blue))
-                        .frame(width: 150, height: 30)
-                        .scaleEffect(x: 1, y: 10, anchor: .center)
-                        .clipShape(RoundedRectangle(cornerRadius: 32))
-                        .padding(.horizontal)
-                    
-                    // Hiển thị phần trăm hoàn thành
-                    if completionRate.truncatingRemainder(dividingBy: 1) == 0 {
-                        let percentage = Int((completionRate / totalTime) * 100)
-                        Text("Complete \(percentage)%")
-                            .font(.subheadline)
-                            .foregroundColor(.black)
-                    }
-                }
-                .onAppear {
-                    startTimer()
-                }
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.trailing)
+                // Thanh Completion Rate và Toggle
+               HStack {
+                   Toggle("Notification", systemImage: isNotiEnable ? "bell.circle.fill" : "bell.slash.circle.fill", isOn: $isNotiEnable)
+                       .font(.system(size: 22))
+                       .foregroundColor(isNotiEnable ? .blue : .gray)
+                       .toggleStyle(.button)
+                       .contentTransition(.symbolEffect)
+                       .onChange(of: isNotiEnable) { newValue in
+                           print("isNotiEnable: \(newValue)")
+                       }
+                   
+                   
+                   Spacer()
+                   
+                   ProgressView(value: completionRate, total: totalTime)
+                       .progressViewStyle(LinearProgressViewStyle(tint: .blue))
+                       .frame(width: 150, height: 30)
+                       .scaleEffect(x: 1, y: 10, anchor: .center)
+                       .clipShape(RoundedRectangle(cornerRadius: 32))
+                       .padding(.horizontal)
+               }
+               .onAppear {
+                   startTimer()
+               }
+               .padding(.horizontal)
+               
+               // Hiển thị phần trăm hoàn thành
+               if completionRate.truncatingRemainder(dividingBy: 1) == 0 {
+                   let percentage = Int((completionRate / totalTime) * 100)
+                   Text("Complete \(percentage)%")
+                       .font(.subheadline)
+                       .foregroundColor(.black)
+                       .padding(.trailing)
+                       .frame(maxWidth: .infinity, alignment: .trailing)
+                   }
                 
                 // Số bài báo tìm thấy
                 Text("\(numberArticles) articles found")
@@ -232,13 +241,43 @@ struct MarketDetailView: View {
     
     func startTimer() {
         completionRate = 0
-        timer?.invalidate() // Ngừng timer cũ nếu có
+        timer?.invalidate()
+        sendCompletionNotification()
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if completionRate < totalTime {
                 completionRate += 1
+                print(completionRate)
+                print(totalTime)
             } else {
-                timer?.invalidate() // Ngừng timer khi đạt 5 phút
+                timer?.invalidate()
+                if isNotiEnable {
+                    sendCompletionNotification()
+                }
+            }
+        }
+    }
+    
+    func requestNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("Request permission error: \(error)")
+            }
+        }
+    }
+    
+    func sendCompletionNotification() {
+        let content = UNMutableNotificationContent()
+        print("bố đã vào rồi nhé")
+        content.title = "Progress Completed"
+        content.body = "The progress has reached 100%."
+        content.sound = .default
+
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Notification error: \(error)")
             }
         }
     }
