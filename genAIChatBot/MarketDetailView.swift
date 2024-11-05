@@ -15,7 +15,7 @@ struct MarketDetailView: View {
     @State private var timer: Timer?
     @State private var isNotiEnable = false
     
-    let totalTime: Double = 5
+    let totalTime: Double = 15
     
     var body: some View {
         ScrollView {
@@ -269,7 +269,7 @@ struct MarketDetailView: View {
         content.sound = .default
 
         // Sử dụng trigger thời gian để đảm bảo thông báo được hiển thị
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request) { error in

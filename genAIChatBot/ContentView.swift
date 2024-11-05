@@ -233,6 +233,8 @@ import UserNotifications
 struct ContentView: View {
     
     @State private var showCustomScreen = false
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some View {
         NavigationView {
@@ -273,6 +275,7 @@ struct ContentView: View {
             }
             .onAppear {
                 requestNotificationPermission()
+                appDelegate.scheduleBackgroundTask()
                 UNUserNotificationCenter.current().delegate = NotificationDelegate() // Cài đặt delegate
             }
             .navigationBarHidden(true) // Ẩn navigation bar mặc định
