@@ -1,5 +1,6 @@
 import SwiftUI
 import UserNotifications
+import BackgroundTasks
 
 struct MarketDetailView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -258,29 +259,28 @@ struct MarketDetailView: View {
         }
     }
     
-    func requestNotificationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if let error = error {
-                print("Request permission error: \(error)")
-            }
-        }
-    }
+    
     
     func sendCompletionNotification() {
+        print("Đang chạy ...")
         let content = UNMutableNotificationContent()
-        print("bố đã vào rồi nhé")
-        content.title = "Progress Completed"
-        content.body = "The progress has reached 100%."
+        content.title = "Hoàn thành Tiến trình"
+        content.body = "Tiến trình đã đạt 100%."
         content.sound = .default
 
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
-        
+        // Sử dụng trigger thời gian để đảm bảo thông báo được hiển thị
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
-                print("Notification error: \(error)")
+                print("Lỗi thông báo: \(error)")
+            } else {
+                print("Thông báo đã được lên lịch thành công")
             }
         }
     }
+
 }
 
 struct MarketDetailView_Previews: PreviewProvider {

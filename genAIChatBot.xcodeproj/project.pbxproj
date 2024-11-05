@@ -46,6 +46,8 @@
 		B2AE24732CD151C200C7D1A1 /* MarketLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketLandingView.swift; sourceTree = "<group>"; };
 		B2B2B9192CD36F5000C64409 /* MarketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailView.swift; sourceTree = "<group>"; };
 		B2B2B91B2CD7E82100C64409 /* MarketDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailViewModel.swift; sourceTree = "<group>"; };
+		B2B2B91D2CDA170200C64409 /* genAIChatBot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = genAIChatBot.entitlements; sourceTree = "<group>"; };
+		B2B2B91E2CDA171C00C64409 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B2C91B752C945C720042D05F /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		B2C91B772C945DA00042D05F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../Downloads/loading.json; sourceTree = "<group>"; };
 		B2CC26C42C8EF902001F0A4F /* genAIChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genAIChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,8 @@
 		B2CC26C62C8EF902001F0A4F /* genAIChatBot */ = {
 			isa = PBXGroup;
 			children = (
+				B2B2B91E2CDA171C00C64409 /* Info.plist */,
+				B2B2B91D2CDA170200C64409 /* genAIChatBot.entitlements */,
 				B2B2B91B2CD7E82100C64409 /* MarketDetailViewModel.swift */,
 				B2CC26C72C8EF902001F0A4F /* genAIChatBotApp.swift */,
 				B2CC26C92C8EF902001F0A4F /* ContentView.swift */,
@@ -254,6 +258,7 @@
 			mainGroup = B2CC26BB2C8EF902001F0A4F;
 			packageReferences = (
 				B2C91B842C9470C70042D05F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				B2B2B91F2CDA1B7400C64409 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = B2CC26C52C8EF902001F0A4F /* Products */;
 			projectDirPath = "";
@@ -467,12 +472,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = genAIChatBot/genAIChatBot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"genAIChatBot/Preview Content\"";
 				DEVELOPMENT_TEAM = 9DKPXRYKQH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = genAIChatBot/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -496,12 +503,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = genAIChatBot/genAIChatBot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"genAIChatBot/Preview Content\"";
 				DEVELOPMENT_TEAM = 9DKPXRYKQH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = genAIChatBot/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -638,6 +647,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B2B2B91F2CDA1B7400C64409 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.4.0;
+			};
+		};
 		B2C91B842C9470C70042D05F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
