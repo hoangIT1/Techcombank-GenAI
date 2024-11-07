@@ -330,6 +330,14 @@ import Combine
 
 struct MarketLandingView: View {
     @Environment(\.presentationMode) var presentationMode
+    
+    @State private var progress: Double = 0.0
+    @State private var showProgressBox: Bool = false
+    @State private var researchEnabled: Bool = true
+    @State private var isReturningFromDetail: Bool = false
+    
+    @StateObject private var viewModel = MarketDetailViewModel()
+    
     @State private var industry = ""
     @State private var country = ""
     @State private var purpose = ""
@@ -445,14 +453,18 @@ struct MarketLandingView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: MarketDetailView(industry: industry, country: country, purpose: purpose)) {
-                        Text("Research")
-                            .frame(width: 100)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.black.opacity(0.7))
-                            .cornerRadius(24)
+                    NavigationLink(destination: MarketDetailView(industry: industry, country: country, purpose: purpose, viewModel: viewModel)) {
+                        Button(action: {
+                            viewModel.startResearch(industry: industry, location: country, purpose: purpose) // Chỉ gọi API khi nhấn "Research"
+                        }) {
+                            Text("Research")
+                                .frame(width: 100)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.black.opacity(0.7))
+                                .cornerRadius(24)
+                        }
                     }
                 }
                 .padding(.horizontal)

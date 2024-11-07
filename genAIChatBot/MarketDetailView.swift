@@ -8,14 +8,21 @@ struct MarketDetailView: View {
     var country: String
     var purpose: String
     
-    @StateObject private var viewModel = MarketDetailViewModel()
+    @ObservedObject private var viewModel: MarketDetailViewModel
+
+    init(industry: String, country: String, purpose: String, viewModel: MarketDetailViewModel) {
+        self.industry = industry
+        self.country = country
+        self.purpose = purpose
+        self.viewModel = viewModel
+    }
     
     @State private var completionRate = 0.0 // Tạm thời đặt completion rate là 75%
-    @State private var numberArticles = 20 // Tạm thời giả lập 20 bài báo tìm thấy
     @State private var timer: Timer?
     @State private var isNotiEnable = false
     
-    let totalTime: Double = 15
+    let totalTime: Double = 300
+    let delayTime: Double = 5
     
     var body: some View {
         ScrollView {
@@ -88,7 +95,7 @@ struct MarketDetailView: View {
                    }
                 
                 // Số bài báo tìm thấy
-                Text("\(numberArticles) articles found")
+                Text("\(viewModel.numberArticles) articles found with \(viewModel.numberWords) words read")
                     .font(.subheadline)
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -114,38 +121,56 @@ struct MarketDetailView: View {
                     .foregroundColor(.black)
                     
                     DisclosureGroup {
-                        Text("Oops, this feature is not avaible right now, Please waiting for update 😜")
+                        Text("Oops, this feature is not available right now, Please wait for update 😜")
                             .font(.system(size: 15))
                             .italic()
                             .padding()
                             .foregroundColor(.black)
                     } label: {
-                        Text("Infographics")
-                            .font(.system(size: 18))
-                            .bold()
+                        HStack {
+                            Text("Infographics")
+                                .font(.system(size: 18))
+                                .bold()
+                            
+                            Spacer() // Đẩy dấu tick sang phải
+
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                                .font(.system(size: 20))
+                        }
                     }
                     .padding()
                     .background(Color.white)
                     .cornerRadius(32)
                     .shadow(radius: 1)
                     .foregroundColor(.black)
+
                     
                     DisclosureGroup {
-                        Text("Oops, this feature is not avaible right now, Please waiting for update 😜")
+                        Text("Oops, this feature is not available right now, Please wait for update 😜")
                             .font(.system(size: 15))
                             .italic()
                             .padding()
                             .foregroundColor(.black)
                     } label: {
-                        Text("Analyst Performance")
-                            .font(.system(size: 18))
-                            .bold()
+                        HStack {
+                            Text("Analyst Performance")
+                                .font(.system(size: 18))
+                                .bold()
+                            
+                            Spacer() // Đẩy dấu tick sang phải
+
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                                .font(.system(size: 20))
+                        }
                     }
                     .padding()
                     .background(Color.white)
                     .cornerRadius(32)
                     .shadow(radius: 1)
                     .foregroundColor(.black)
+
                     
                     DisclosureGroup {
                         Text(viewModel.summaryContent)
@@ -153,9 +178,20 @@ struct MarketDetailView: View {
                             .padding()
                             .foregroundColor(.black)
                     } label: {
-                        Text("Summary")
-                            .font(.system(size: 18))
-                            .bold()
+                        HStack {
+                            Text("Summary")
+                                .font(.system(size: 18))
+                                .bold()
+                            
+                            Spacer()
+
+                            // Hiển thị tick xanh khi API cho summaryContent hoàn tất
+                            if ($viewModel.isSummaryApiComplete.wrappedValue && !viewModel.summaryContent.isEmpty) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                    .font(.system(size: 20))
+                            }
+                        }
                     }
                     .padding()
                     .background(Color.white)
@@ -169,9 +205,20 @@ struct MarketDetailView: View {
                             .padding()
                             .foregroundColor(.black)
                     } label: {
-                        Text("Overview")
-                            .font(.system(size: 18))
-                            .bold()
+                        HStack {
+                            Text("Overview")
+                                .font(.system(size: 18))
+                                .bold()
+                            
+                            Spacer()
+
+                            // Hiển thị tick xanh khi API cho summaryContent hoàn tất
+                            if ($viewModel.isOverviewApiComplete.wrappedValue && !viewModel.overviewContent.isEmpty) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                    .font(.system(size: 20))
+                            }
+                        }
                     }
                     .padding()
                     .background(Color.white)
@@ -185,9 +232,20 @@ struct MarketDetailView: View {
                             .padding()
                             .foregroundColor(.black)
                     } label: {
-                        Text("Competition")
-                            .font(.system(size: 18))
-                            .bold()
+                        HStack {
+                            Text("Competition")
+                                .font(.system(size: 18))
+                                .bold()
+                            
+                            Spacer()
+
+                            // Hiển thị tick xanh khi API cho summaryContent hoàn tất
+                            if ($viewModel.isCompetitionApiComplete.wrappedValue && !viewModel.competitionContent.isEmpty) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                    .font(.system(size: 20))
+                            }
+                        }
                     }
                     .padding()
                     .background(Color.white)
@@ -201,9 +259,20 @@ struct MarketDetailView: View {
                             .padding()
                             .foregroundColor(.black)
                     } label: {
-                        Text("Customers")
-                            .font(.system(size: 18))
-                            .bold()
+                        HStack {
+                            Text("Customers")
+                                .font(.system(size: 18))
+                                .bold()
+                            
+                            Spacer()
+
+                            // Hiển thị tick xanh khi API cho summaryContent hoàn tất
+                            if ($viewModel.isCustomersApiComplete.wrappedValue && !viewModel.customersContent.isEmpty) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                    .font(.system(size: 20))
+                            }
+                        }
                     }
                     .padding()
                     .background(Color.white)
@@ -217,9 +286,20 @@ struct MarketDetailView: View {
                             .padding()
                             .foregroundColor(.black)
                     } label: {
-                        Text("Key Data")
-                            .font(.system(size: 18))
-                            .bold()
+                        HStack {
+                            Text("Key Data")
+                                .font(.system(size: 18))
+                                .bold()
+                            
+                            Spacer()
+
+                            // Hiển thị tick xanh khi API cho summaryContent hoàn tất
+                            if ($viewModel.isKeyDataApiComplete.wrappedValue && !viewModel.keyDataContent.isEmpty) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                    .font(.system(size: 20))
+                            }
+                        }
                     }
                     .padding()
                     .background(Color.white)
@@ -264,12 +344,12 @@ struct MarketDetailView: View {
     func sendCompletionNotification() {
         print("Đang chạy ...")
         let content = UNMutableNotificationContent()
-        content.title = "Hoàn thành Tiến trình"
-        content.body = "Tiến trình đã đạt 100%."
+        content.title = "Hoàn thành tiến trình"
+        content.body = "Ôi bạn ơi, Tiến trình đã đạt 100%. Hãy kiểm tra nhé 🤓"
         content.sound = .default
 
         // Sử dụng trigger thời gian để đảm bảo thông báo được hiển thị
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: totalTime + delayTime, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request) { error in
@@ -285,6 +365,6 @@ struct MarketDetailView: View {
 
 struct MarketDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MarketDetailView(industry: "Football", country: "Hoàng", purpose: "Purpose Placeholder")
+        MarketDetailView(industry: "Football", country: "Hoàng", purpose: "Purpose Placeholder", viewModel: MarketDetailViewModel())
     }
 }
