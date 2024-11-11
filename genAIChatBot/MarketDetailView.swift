@@ -324,6 +324,7 @@ struct MarketDetailView: View {
         completionRate = 0
         timer?.invalidate()
         sendCompletionNotification()
+        viewModel.startResearch(industry: industry, location: country, purpose: purpose)
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if completionRate < totalTime {
