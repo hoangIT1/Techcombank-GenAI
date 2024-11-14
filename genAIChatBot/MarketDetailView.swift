@@ -17,7 +17,8 @@ struct MarketDetailView: View {
         self.viewModel = viewModel
     }
     
-    @State private var completionRate = 0.0 // Tạm thời đặt completion rate là 75%
+//    @State private var completionRate = 0.0
+    
     @State private var timer: Timer?
     @State private var isNotiEnable = false
     
@@ -72,7 +73,7 @@ struct MarketDetailView: View {
                    
                    Spacer()
                    
-                   ProgressView(value: completionRate, total: totalTime)
+                   ProgressView(value: viewModel.completionRate, total: totalTime)
                        .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                        .frame(width: 150, height: 30)
                        .scaleEffect(x: 1, y: 10, anchor: .center)
@@ -80,13 +81,16 @@ struct MarketDetailView: View {
                        .padding(.horizontal)
                }
                .onAppear {
-                   startTimer()
+                   print(viewModel.apiStatus)
+                   if (viewModel.apiStatus == .notStarted) {
+                      startTimer()
+                  }
                }
                .padding(.horizontal)
                
                // Hiển thị phần trăm hoàn thành
-               if completionRate.truncatingRemainder(dividingBy: 1) == 0 {
-                   let percentage = Int((completionRate / totalTime) * 100)
+                if viewModel.completionRate.truncatingRemainder(dividingBy: 1) == 0 {
+                    let percentage = Int((viewModel.completionRate / totalTime) * 100)
                    Text("Complete \(percentage)%")
                        .font(.subheadline)
                        .foregroundColor(.black)
@@ -254,7 +258,7 @@ struct MarketDetailView: View {
                     .foregroundColor(.black)
                     
                     DisclosureGroup {
-                        Text(viewModel.customersContent)
+                        Text(viewModel.customerContent)
                             .font(.system(size: 15))
                             .padding()
                             .foregroundColor(.black)
@@ -267,7 +271,7 @@ struct MarketDetailView: View {
                             Spacer()
 
                             // Hiển thị tick xanh khi API cho summaryContent hoàn tất
-                            if ($viewModel.isCustomersApiComplete.wrappedValue && !viewModel.customersContent.isEmpty) {
+                            if ($viewModel.isCustomersApiComplete.wrappedValue && !viewModel.customerContent.isEmpty) {
                                 Image(systemName: "checkmark.circle.fill")
                                     .foregroundColor(.green)
                                     .font(.system(size: 20))
@@ -321,15 +325,15 @@ struct MarketDetailView: View {
     }
     
     func startTimer() {
-        completionRate = 0
+//        completionRate = 0
         timer?.invalidate()
         sendCompletionNotification()
         viewModel.startResearch(industry: industry, location: country, purpose: purpose)
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            if completionRate < totalTime {
-                completionRate += 1
-                print(completionRate)
+            if viewModel.completionRate < totalTime {
+                viewModel.completionRate += 1
+                print(viewModel.completionRate)
                 print(totalTime)
             } else {
                 timer?.invalidate()

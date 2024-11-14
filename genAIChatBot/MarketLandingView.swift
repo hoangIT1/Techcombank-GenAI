@@ -334,6 +334,8 @@ struct MarketLandingView: View {
     @State private var progress: Double = 0.0
     @State private var showProgressBox: Bool = false
     @State private var researchEnabled: Bool = true
+    
+    @State private var isReturningToResearch = false
         
     @StateObject private var viewModel = MarketDetailViewModel()
     
@@ -348,6 +350,31 @@ struct MarketLandingView: View {
             }
             return 0
         }
+    
+    
+    var buttonTitle: String {
+        switch viewModel.apiStatus {
+        case .inProgress:
+            return "Return to Analyst"
+        case .completed:
+//            viewModel.apiStatus = .notStarted
+            return "View Dashboard"
+        default:
+            return "Research"
+        }
+    }
+
+    var buttonColor: Color {
+        switch viewModel.apiStatus {
+        case .inProgress:
+            return Color.blue.opacity(0.7)
+        case .completed:
+            return Color.orange.opacity(0.7)
+        default:
+            return Color.black.opacity(0.7)
+        }
+    }
+
     
     var body: some View {
         ScrollView { // Đổi thành ScrollView để có thể lướt
@@ -452,15 +479,46 @@ struct MarketLandingView: View {
                     
                     Spacer()
                     
+//                    NavigationLink(destination: MarketDetailView(industry: industry, country: country, purpose: purpose, viewModel: viewModel)) {
+//                        if viewModel.apiStatus == .inProgress {
+//                            Text("Return to Analyst")
+//                                .frame(width: 150)
+//                                .fontWeight(.bold)
+//                                .foregroundColor(.white)
+//                                .padding()
+//                                .background(Color.blue.opacity(0.7))
+//                                .cornerRadius(24)
+//                        } 
+//                        else if viewModel.apiStatus == .completed {
+//                            viewModel.apiStatus = .notStarted
+//                            Text("View Dashboard")
+//                                .frame(width: 150)
+//                                .fontWeight(.bold)
+//                                .foregroundColor(.white)
+//                                .padding()
+//                                .background(Color.orange.opacity(0.7))
+//                                .cornerRadius(24)
+//                        } 
+//                        else {
+//                            Text("Research")
+//                                .frame(width: 100)
+//                                .fontWeight(.bold)
+//                                .foregroundColor(.white)
+//                                .padding()
+//                                .background(Color.black.opacity(0.7))
+//                                .cornerRadius(24)
+//                        }
+//                    }
                     NavigationLink(destination: MarketDetailView(industry: industry, country: country, purpose: purpose, viewModel: viewModel)) {
-                            Text("Research")
-                                .frame(width: 100)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(Color.black.opacity(0.7))
-                                .cornerRadius(24)
+                        Text(buttonTitle)
+                            .frame(width: 150)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(buttonColor)
+                            .cornerRadius(24)
                     }
+
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 10)

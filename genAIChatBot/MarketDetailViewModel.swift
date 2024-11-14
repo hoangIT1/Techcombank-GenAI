@@ -5,10 +5,11 @@ class MarketDetailViewModel: ObservableObject {
     @Published var summaryContent = "Nội dung summary"
     @Published var overviewContent = "Nội dung overview"
     @Published var competitionContent = "Nội dung competition"
-    @Published var customersContent = "Nội dung customers"
+    @Published var customerContent = "Nội dung customers"
     @Published var keyDataContent = "Nội dung keyData"
     @Published var numberArticles = 0
     @Published var numberWords = 0
+    @Published var completionRate = 0.0
     
     @Published var isSummaryApiComplete: Bool = false
     @Published var isOverviewApiComplete: Bool = false
@@ -16,10 +17,19 @@ class MarketDetailViewModel: ObservableObject {
     @Published var isCustomersApiComplete: Bool = false
     @Published var isKeyDataApiComplete: Bool = false
     
+    enum ApiStatus {
+        case notStarted, inProgress, completed
+    }
+
+    @Published var apiStatus: ApiStatus = .notStarted
+    
     
 
     // Hàm khởi tạo để gọi API khi có dữ liệu từ view
     func startResearch(industry: String, location: String, purpose: String) {
+        print(apiStatus)
+        guard apiStatus == .notStarted else { return }
+        apiStatus = .inProgress
         // Gọi API đầu tiên
         callInitialAPI(industry: industry, location: location, purpose: purpose) {
             // Kiểm tra điều kiện để gọi các API tiếp theo
@@ -27,15 +37,16 @@ class MarketDetailViewModel: ObservableObject {
                 // Đặt bộ đếm thời gian 10 giây để gọi callConcurrentAPIs
                 Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
                     self.callConcurrentAPIs(industry: industry, location: location, purpose: purpose)
+                    self.apiStatus = .completed
                 }
             }
         }
     }
-
+ 
     
     // Hàm gọi API đầu tiên để lấy numberArticles và numberWords
     private func callInitialAPI(industry: String, location: String, purpose: String, completion: @escaping () -> Void) {
-        let url = URL(string: "https://6798-34-86-107-178.ngrok-free.app/query")!
+        let url = URL(string: "https://5c33-35-236-176-100.ngrok-free.app/query")!
         
         var request = URLRequest(url: url)
         request.timeoutInterval = 600
@@ -78,11 +89,11 @@ class MarketDetailViewModel: ObservableObject {
 
         // URL cho từng API
         let urls = [
-            "https://7103-35-222-51-251.ngrok-free.app/query", // API 1: summaryContent
-            "https://2c60-34-83-235-18.ngrok-free.app/query", // API 2: overviewContent
-            "https://663e-34-83-25-83.ngrok-free.app/query", // API 3: competitionContent
-            "https://4f6b-34-66-143-108.ngrok-free.app/query", // API 4: customersContent
-            "https://d31e-34-72-74-117.ngrok-free.app/query"  // API 5: keyDataContent
+            "https://3b86-34-168-109-16.ngrok-free.app/query", // API 1: summaryContent
+            "https://3e33-34-172-116-184.ngrok-free.app/query", // API 2: overviewContent
+            "https://ae01-34-145-20-163.ngrok-free.app/query", // API 3: competitionContent
+            "https://947e-34-29-0-41.ngrok-free.app/query", // API 4: customerContent
+            "https://6bf1-35-184-176-170.ngrok-free.app/query"  // API 5: keyDataContent
         ]
         
         // API 1: summaryContent
@@ -103,9 +114,9 @@ class MarketDetailViewModel: ObservableObject {
             dispatchGroup.leave()
         }
 
-        // API 4: customersContent
+        // API 4: customerContent
         dispatchGroup.enter()
-        callAPI(endpoint: urls[3], industry: industry, location: location, purpose: purpose, contentType: "customersContent") {
+        callAPI(endpoint: urls[3], industry: industry, location: location, purpose: purpose, contentType: "customerContent") {
             dispatchGroup.leave()
         }
 
@@ -159,8 +170,8 @@ class MarketDetailViewModel: ObservableObject {
                         case "competitionContent":
                             self.competitionContent = message["competitionContent"] as? String ?? "Không có dữ liệu"
                             self.isCompetitionApiComplete = true
-                        case "customersContent":
-                            self.customersContent = message["customersContent"] as? String ?? "Không có dữ liệu"
+                        case "customerContent":
+                            self.customerContent = message["customerContent"] as? String ?? "Không có dữ liệu"
                             self.isCustomersApiComplete = true
                         case "keyDataContent":
                             self.keyDataContent = message["keyDataContent"] as? String ?? "Không có dữ liệu"
